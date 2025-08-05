@@ -1,0 +1,270 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Nexus AI Hub Dark Theme */
+    --background: 235 24% 8%;
+    --foreground: 210 40% 98%;
+
+    --card: 235 20% 12%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 235 20% 12%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 235 85% 65%;
+    --primary-foreground: 235 24% 8%;
+
+    --secondary: 235 20% 18%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 235 20% 15%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 260 85% 70%;
+    --accent-foreground: 235 24% 8%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 235 20% 20%;
+    --input: 235 20% 18%;
+    --ring: 235 85% 65%;
+
+    --radius: 0.5rem;
+
+    /* Custom Nexus colors */
+    --nexus-blue: 235 85% 65%;
+    --nexus-purple: 260 85% 70%;
+    --nexus-green: 120 85% 60%;
+    --nexus-orange: 25 85% 65%;
+    --nexus-glow: 235 85% 80%;
+    --nexus-dark: 235 24% 8%;
+    --nexus-darker: 235 30% 5%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--nexus-blue)), hsl(var(--nexus-purple)));
+    --gradient-glow: linear-gradient(135deg, hsl(var(--nexus-blue) / 0.1), hsl(var(--nexus-purple) / 0.1));
+    
+    /* Shadows */
+    --shadow-glow: 0 0 40px hsl(var(--nexus-blue) / 0.3);
+    --shadow-card: 0 10px 30px -10px hsl(var(--nexus-darker) / 0.5);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Custom scroll bar */
+  *::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: hsl(var(--nexus-darker));
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background: hsl(var(--nexus-blue) / 0.5);
+    border-radius: 4px;
+  }
+  
+  *::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--nexus-blue) / 0.7);
+  }
+
+  /* Magnetic button effect */
+  .magnetic-button {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .magnetic-button:hover {
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 20px 40px rgba(100, 113, 252, 0.3);
+  }
+
+  /* Glitch text effect */
+  .glitch-text {
+    animation: glitch 2s infinite;
+  }
+
+  @keyframes glitch {
+    0%, 90%, 100% {
+      transform: translateX(0);
+    }
+    92% {
+      transform: translateX(-2px);
+    }
+    94% {
+      transform: translateX(2px);
+    }
+    96% {
+      transform: translateX(-1px);
+    }
+    98% {
+      transform: translateX(1px);
+    }
+  }
+
+  /* Floating elements */
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  /* Ripple effect */
+  .ripple {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ripple::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+  }
+
+  .ripple:hover::before {
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Animated underline effect */
+  .animated-underline {
+    position: relative;
+  }
+
+  .animated-underline::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(135deg, hsl(var(--nexus-blue)), hsl(var(--nexus-purple)));
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+  }
+
+  .animated-underline:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  /* Magnetic Cards */
+  .magnetic-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+  }
+
+  .magnetic-card:hover {
+    transform: translateY(-4px) scale(1.02);
+  }
+
+  /* Magnetic Input */
+  .magnetic-input {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .magnetic-input:focus {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 25px -8px hsl(var(--nexus-blue) / 0.4);
+  }
+
+  /* Floating Cards Animation */
+  .floating-card {
+    animation: floating-card 4s ease-in-out infinite;
+  }
+
+  @keyframes floating-card {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+  }
+}
+
+/* Counter Animation */
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.counter {
+  animation: countUp 1s ease-out;
+  animation-fill-mode: both;
+}
+
+/* Auto-animate counter numbers */
+.counter[data-target] {
+  counter-reset: count 0;
+}
+
+.counter[data-target]::before {
+  content: counter(count);
+  animation: counter 2s ease-out forwards;
+}
+
+@keyframes counter {
+  0% { counter-increment: count 0; }
+  100% { counter-increment: count var(--target); }
+}
+
+  /* Pulse glow animation */
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      filter: drop-shadow(0 0 8px hsl(var(--nexus-blue) / 0.6));
+    }
+    50% {
+      filter: drop-shadow(0 0 16px hsl(var(--nexus-blue) / 0.8));
+    }
+  }
+
+  /* Glow shadow effect */
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .hover\:shadow-glow:hover {
+    box-shadow: var(--shadow-glow);
+  }
+}
