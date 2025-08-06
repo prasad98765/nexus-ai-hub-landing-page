@@ -6,6 +6,8 @@ import HowItWorksSection from '@/components/HowItWorksSection';
 import ComingSoonSection from '@/components/ComingSoonSection';
 import ContactSection from '@/components/ContactSection';
 import ParticleBackground from '@/components/ParticleBackground';
+import WhatCanYouBuildSection from '@/components/WhatCanYouBuildSection';
+
 
 const Index = () => {
   return (
@@ -16,6 +18,7 @@ const Index = () => {
         <HeroSection />
         <AboutSection />
         <FeaturesSection />
+        <WhatCanYouBuildSection />
         <HowItWorksSection />
         <ComingSoonSection />
         <ContactSection />
