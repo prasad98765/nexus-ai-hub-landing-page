@@ -23,7 +23,7 @@ const HeroSection = () => {
       </div>
 
       <div className="container mx-auto px-4 text-center relative z-10">
-        <div className="max-w-4xl mx-auto space-y-8 animate-fade-in-up " style={{ marginTop: '20px' }}>
+        <div className="max-w-4xl mx-auto space-y-8 animate-fade-in-up hero-margin-top" style={{ marginTop: '20px' }}>
           {/* Main headline */}
           <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight px-2 sm:px-4">
             <span className="text-foreground">Build Intelligent</span>

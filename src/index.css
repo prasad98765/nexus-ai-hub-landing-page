@@ -301,3 +301,16 @@ All colors MUST be HSL.
   .bg-card\/80 {
     background-color: hsl(var(--card) / 0.9) !important;
   }
+
+.hero-margin-top {
+  margin-top: 20px;
+}
+
+@media (max-width: 640px) {
+  .hero-margin-top {
+    margin-top: 60px !important;
+  }
+  .text-2xl{
+    font-size: 2.5rem !important;
+  }
+}
